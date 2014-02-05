@@ -1,0 +1,50 @@
+# This is $HOME/screen/.screenrc_myscreen
+# 
+# Конфигурация screen для работы с несколькими окнами
+# За основу взят пост на хабре http://habrahabr.ru/company/mailru/blog/206814/
+# Большинство коментариев от автора сохранено без разбора, что-то переделано для удобства
+#
+
+# Для удобства запуска в .bashrc прописывается команда:
+# alias myscreen="screen -AadRRS project_screen -c $HOME/screen/.screenrc_myscreen"
+
+# По команде myscreen запускается инстанс скрина с шестью консолями.
+# Переключение между консолями через shift+стрелка вправо или shift + стрелка влево
+# Выход из screen: Ctrl+A, потом d. Все сеансы сохраняются
+# Для выхода из screen без сохранения пока закрываем все консоли руками.
+# Либо автоматическое убийство всех консолей: Ctrl+A, /
+
+
+# Turn off start message:
+startup_message off
+
+# Set messages timeout to one second:
+msgwait 3
+
+# keep scrollback n lines
+defscrollback 5000
+
+hardstatus             alwayslastline
+
+termcapinfo xterm*|rxvt*|kterm*|Eterm* 'hs:ts=\E]0;:fs=\007:ds=\E]0;\007'
+termcapinfo xterm ti@:te@7 
+
+# эта строка как раз рисует табы внизу, в строке состояния, подсвечивает текущий и т.п.
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{y}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
+
+nethack on
+vbell off
+
+#  Здесь комбинациям Shift+Arrow Left/Right назначается переключение между табами
+bindkey ^[[1;2C next
+bindkey ^[[1;2D prev
+
+# ну а здесь я создаю 6 скринов AUTO1 – AUTO6
+
+screen -t AUTO1 env PROJ=myscreen bash 
+#screen -t ROOT  env PROJ=myscreen1 sudo -s
+screen -t AUTO2 env PROJ=myscreen bash
+screen -t AUTO3 env PROJ=myscreen bash 
+screen -t AUTO4 env PROJ=myscreen bash 
+screen -t AUTO5 env PROJ=myscreen bash 
+screen -t AUTO6 env PROJ=myscreen bash 
