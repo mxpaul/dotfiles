@@ -1,3 +1,4 @@
 dotfiles
 ========
-.screenrc_myscreen - screen multitab env
+
+Bunch of various configuration files
