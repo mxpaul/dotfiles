@@ -27,3 +27,12 @@ cd ~
 for df in '.bashrc' '.tmux.conf' '.vimrc'; do
 	create_dotfile "$df"
 done
+
+if mkdir -p .vim; then
+  for src in dotfiles/vim/*; do
+    ln $src .vim/$(basename $src)
+  done
+else
+  echo "Failed to create .vim/. Exiting..."
+  exit 1
+fi
