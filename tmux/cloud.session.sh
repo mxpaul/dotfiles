@@ -25,3 +25,27 @@ tmux_cloud() {
   tmux attach-session -t $SESSION
 }
 
+tmux_repo() {
+
+  SESSION=repo
+  tmux attach-session -t $SESSION && return
+
+  tmux start-server
+  tmux new-session -d -s "$SESSION" -n "$SESSION"
+  
+ 
+  tmux new-window -k -t $SESSION:0 -n ROOT
+  tmux new-window -t $SESSION:1 -n "rpmtools"
+  tmux new-window -t $SESSION:2 -n "Repo"
+  tmux new-window -t $SESSION:3 -n "Mock logs"
+  tmux new-window -t $SESSION:4 -n "AUTO 4"
+ 
+  tmux send-keys -t $SESSION:0 "sudo -s" C-m
+  tmux send-keys -t $SESSION:1 "cd ~/rpmtools && mc" C-m
+  tmux send-keys -t $SESSION:2 "cd ~/repo && mc" C-m
+  tmux send-keys -t $SESSION:3 "cd /var/lib/mock" C-m
+ 
+  tmux select-window -t $SESSION:0
+  tmux attach-session -t $SESSION
+}
+
