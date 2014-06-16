@@ -2,6 +2,7 @@
 
 use strict;
 use warnings;
+use utf8;
 
 use lib::abs qw( ./lib ../lib );
 
@@ -9,7 +10,7 @@ use Data::Dumper;
 
 use EV;
 use AnyEvent;
-use AnyEvent:HTTP;
+use AnyEvent::HTTP;
 
 use JSON::XS;
 our $JSON=JSON::XS->new->utf8;
