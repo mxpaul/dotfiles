@@ -2,11 +2,7 @@
 #### This file is managed via dotfiles repo
 #####################################################################################
 # .bashrc
-#if [ "$UID" = 0 ]; then
 export PS1='\[\e[1;31m\]\u\[\e[1;34m\]@\[\e[1;37m\]\h\[\e[1;0m\]:\[\e[1;34m\]\w\[\e[1;0m\]\$ '
-#else 
-#	export PS1='\[\e[1;32m\]\u\[\e[1;34m\]@\[\e[1;31m\]W\[\e[1;37m\]in87\[\e[1;0m\]:\[\e[1;34m\]\w\[\e[1;0m\]$ '
-#fi
 export LANG=ru_RU.UTF-8
 
 # Source global definitions
