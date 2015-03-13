@@ -9,6 +9,7 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific aliases and functions
+export SSH_AUTH_SOCK=~/.ssh-agent.sock
 
 alias myscreen="screen -AadRRS project_screen -c $HOME/dotfiles/.screenrc_myscreen"
 #alias projzip="screen -AadRRS project_screen -c $HOME/screen/.screenrc_projzip"
