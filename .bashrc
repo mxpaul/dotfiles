@@ -2,6 +2,8 @@
 #### This file is managed via dotfiles repo
 #####################################################################################
 # .bashrc
+export PS1='\[\e[1;31m\]\u\[\e[1;34m\]@\[\e[1;37m\]\h\[\e[1;0m\]:\[\e[1;34m\]\w\[\e[1;0m\]\$ '
+export LANG=ru_RU.UTF-8
 
 # Source global definitions
 if [ -f /etc/bashrc ]; then
