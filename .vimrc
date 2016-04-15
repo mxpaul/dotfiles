@@ -1,9 +1,21 @@
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%101v.\+/
+:set ruler
+:set laststatus=2
 :set shiftwidth=2
 :set tabstop=2
 :set noexpandtab
 :set nobackup
-:colorscheme darkblue
+:syntax on
+:set hlsearch
+:set colorcolumn=100
 :autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+:autocmd FileType c,cpp,java,php,perl autocmd BufWritePre <buffer> :%s/\s\+$//e
+" Restore cursor position to where we edited file for the last time
+set viminfo='20,\"50
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
 " Return indent (all whitespace at start of a line), converted from
 " tabs to spaces if what = 1, or from spaces to tabs otherwise.
 " When converting to tabs, result has no redundant spaces.
