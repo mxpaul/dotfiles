@@ -24,6 +24,7 @@ alias t2='tree -L 2'
 alias tt='t2'
 alias gti=git
 alias fuck='export SSH_AUTH_SOCK=$(ls -1 /tmp/ssh*/*)'
+alias jl='awk "{ gsub(/^[^{]+/,\"\"); print }" | jq'
 #chkinodes() { local MP="${1:-/}"; find "$MP" -xdev -printf '%h\n' | sort | uniq -c | sort -k 1 -n; };
 topinode() { 
 	local DIR=$1;
